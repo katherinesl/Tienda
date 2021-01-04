@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginUser {
 
     public static WebDriver driver;
-
+/*
     @Before
     public static void pagWeb() {
         System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/driver/chromedriver.exe");
@@ -25,7 +25,7 @@ public class LoginUser {
         driver.navigate().to("http://automationpractice.com/");
 
     }
-
+*/
 
     @Given("^el usuario desea logear en la pagina Automationpractice$")
     public void elUsuarioDeseaLogearEnLaPaginaAutomationpractice() throws InterruptedException {
@@ -59,8 +59,10 @@ public class LoginUser {
 
     }
 
-    @After
+    /*@After
     public void cerrarPagina (){
         driver.quit();
     }
+*/
+
 }
