@@ -55,7 +55,6 @@ public class LoginUser {
         driver.findElement(By.id("confirmation")).sendKeys("987654321");
         driver.findElement(By.xpath("//span[text()='Save']")).click();
         System.out.println(driver.findElement(By.className("alert-success")).getText());
-        Thread.sleep(40000);
 
     }
 
