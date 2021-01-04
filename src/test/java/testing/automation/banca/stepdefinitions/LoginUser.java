@@ -51,6 +51,7 @@ public class LoginUser {
        driver.findElement(By.xpath("//span[text()='My personal information']")).click();
         //CAMBIAR CONTRASEÑA//
         driver.findElement(By.id("old_passwd")).sendKeys("123456789");
+
         driver.findElement(By.id("passwd")).sendKeys("987654321");
         driver.findElement(By.id("confirmation")).sendKeys("987654321");
         driver.findElement(By.xpath("//span[text()='Save']")).click();
