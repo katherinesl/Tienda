@@ -5,28 +5,21 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.runtime.HookDefinition;
 import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import testing.automation.banca.helpers.Hook;
 
 import java.util.concurrent.TimeUnit;
 
 public class BuscarVestidos {
 
-    public static WebDriver  driver;
+    private final WebDriver driver;
 
-    @Before
-    public static void pagWeb3() {
-        //   System.setProperty(webdriver.chrome.driver,System.getProperty(""));
-
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+ "\\src\\test\\resources\\driver\\chromedriver.exe");
-        driver= new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.navigate().to("http://automationpractice.com");
-
+    public BuscarVestidos(){
+        this.driver = Hook.getDriver();
     }
 
     @Given("^el usuario desea buscar todos vestido en la pagina automationpractice$")
@@ -52,10 +45,6 @@ public class BuscarVestidos {
 
     }
 
-    @After
-    public static void cerrarPagina() {
-        driver.quit();
 
-    }
 
 }
