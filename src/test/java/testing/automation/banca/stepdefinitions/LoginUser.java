@@ -1,38 +1,20 @@
 package testing.automation.banca.stepdefinitions;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
 
 public class LoginUser {
 
-    public static WebDriver driver;
-/*
-    @Before
-    public static void pagWeb() {
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/driver/chromedriver.exe");
-        driver= new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.navigate().to("http://automationpractice.com/");
+    private WebDriver driver;
 
-    }
-*/
+
+
 
     @Given("^el usuario desea logear en la pagina Automationpractice$")
     public void elUsuarioDeseaLogearEnLaPaginaAutomationpractice() throws InterruptedException {
-
-        driver.findElement(By.className("login")).click();
-
-
 
     }
 

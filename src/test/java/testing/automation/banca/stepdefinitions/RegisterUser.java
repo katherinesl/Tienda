@@ -9,55 +9,37 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import testing.automation.banca.helpers.Hook;
+import testing.automation.banca.pageobject.CommonPage;
+import testing.automation.banca.pageobject.RegisterUserPage;
 
 import java.util.concurrent.TimeUnit;
 
 public class RegisterUser {
 
-public static WebDriver driver;
-
-//    @Before
-//    public static void abrirPagina(){
-//        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/driver/chromedriver.exe");
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.navigate().to("http://automationpractice");
-//        driver.manage().deleteAllCookies();
-//
-//        }
-
+    static WebDriver driver;
+    static CommonPage commonPage = new CommonPage(driver);
+    static RegisterUserPage registerUserPage= new RegisterUserPage(driver);
+    public RegisterUser(){ this.driver = Hook.getDriver(); }
 
     @Given("^el usuario desea registrarse en Automationpractice$")
     public void el_usuario_desea_registrarse_en_Automationpractice() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-
-        driver.findElement(By.className("login")).click();
-        Thread.sleep(10000);
-
-
+        commonPage.loginClick(driver);
     }
 
     @When("^envia informacion requerida$")
     public void envia_informacion_requerida() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        //driver.manage().window();
-        driver.findElement(By.id("email_create")).sendKeys("julissa4@gmail.com");
-        
-        driver.findElement(By.id("SubmitCreate")).click();
-        
-        driver.findElement(By.id("id_gender1")).click();
-        
-        driver.findElement(By.id("customer_firstname")).sendKeys("jubilo");
-        
-        driver.findElement(By.id("customer_lastname")).sendKeys("Hernandez");
-        driver.findElement(By.id("email")).click();
-        
-        driver.findElement(By.id("passwd")).sendKeys("123456789");
+        registerUserPage.sendEmail(driver,"julissa12@gmail.com" );
+        registerUserPage.createEmailClick(driver);
+        registerUserPage.selectionTitleClick(driver);
+        registerUserPage.send_firstname(driver,"jubilos");
+        registerUserPage.registerLastname(driver,"hernandez");
+        registerUserPage.clickEmail(driver);
+        registerUserPage.registerPassword(driver,"123456789");
+        registerUserPage.selectDay(driver,"12");
+        Thread.sleep(1000);
 
-        Select selectDay = new Select(driver.findElement(By.id("days")));
-        selectDay.selectByValue("12");
-
+/*
         Select selectMonth = new Select(driver.findElement(By.id("months")));
         selectMonth.selectByValue("3");
 
@@ -88,7 +70,7 @@ public static WebDriver driver;
         driver.findElement(By.id("alias")).sendKeys("ejemplo22");
 
 
-
+*/
 
     }
 
@@ -100,14 +82,6 @@ public static WebDriver driver;
         Thread.sleep(60000);
 
     }
-
-
-
-
-//     @After
-//     public static void cerrarPagina(){
-//    driver.quit();
-//    }
 
 
 }

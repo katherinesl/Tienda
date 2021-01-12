@@ -1,5 +1,6 @@
 testing\automation\banca\stepdefinitions\LoginUser.class
 testing\automation\banca\runner\RunTest.class
 testing\automation\banca\stepdefinitions\RegisterUser.class
+testing\automation\banca\pageobject\CommonPage.class
 testing\automation\banca\helpers\Hook.class
 testing\automation\banca\stepdefinitions\BuscarVestidos.class

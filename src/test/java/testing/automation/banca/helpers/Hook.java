@@ -30,9 +30,9 @@ public class Hook {
 
     @After
     public void cerrarPagina() {
-        if (driver==null){
-            getDriver().quit();
-        }
+
+        getDriver().quit();
+
 
     }
 
